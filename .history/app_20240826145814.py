@@ -29,7 +29,7 @@ def main():
 
     st.subheader(f"Generated information for this Museum: {selected_option.title()}")
 
-    prompt = st.text_input("Any additional Queries(location, timings):")
+    prompt = st.text_input("Any additional Information:")
 
     if st.button("Show Information"):
         try:
