@@ -29,14 +29,20 @@ def main():
 
     st.subheader(f"Generated information for this Museum: {selected_option.title()}")
 
+    prompt = st.text_input("Any additional Information:")
+
     if st.button("Show Information"):
         try:
          
             # Generate the content using the model (placeholder for actual model call)
             response = model.generate_content(f"Generate a detailed explaination for {content}, the history and significance of the museum")
-
+            #A chatbot conversation
+            response2 = model.generate_content(f"Generate an answer in about 100 words for {prompt}")
             # Extract the generated text (assuming response.text is the output format)
             generated_text = response.text
+            generated_text2 = response2.text
+
+            st.write(f"{generated_text2}")
 
             if response.parts:
                     titles = [part.text.strip() for part in response.parts]
@@ -47,4 +53,4 @@ def main():
         except Exception as e:
             st.error(f"Error: {str(e)}")
 main()
-# Button for Content Generation
+
